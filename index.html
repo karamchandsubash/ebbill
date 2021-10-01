@@ -36,109 +36,219 @@
            </div>
         </div>
       </nav>
-      <div class="header">
-        <table width="100%" style="padding-left: 140px;padding-top: 20px;padding-bottom: 70px;">
-            <tr>
-                <td> <img src="photo/logo1.png" alt="" style="left: -40px;"></td>
-                <td><img src="photo/minagam.png" alt="" width="170"></td>
-            </tr>
-        </table>
-       
-        
-         
-    </div>
-        <br><br>   
-           
-    <section style="margin-left: 15%; margin-top: 0%;">
-        <div class="box">
-            <div class="head" >
-                <ul style="list-style: none; margin-left:80px;">
-                    <li style=" display: inline; padding-right:5em"></li>
-                    <li style=" display: inline; padding-right:5em"></li>
-                    <li style=" display: inline;padding-right:5em"> </li>
-                    <li style=" display: inline;padding-right:5em">   </li>
-                    <li style=" display: inline;padding-right:5em"> </li>
-                   
-
-                </ul>
-            </div>
-                          <h4 style="margin-left: 26%; font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;font-weight: 900;"> EB BILL CALCULATION</h4>
-            <br><br><br>
-            <form  style="margin-left: 200px;" name="select" >
-               <table width="80%">
-                   <tr>
-                        <td style="color: rgb(1, 1, 100); font-weight: bold;font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;">Tariff Check</td> 
-                        <td> <select name="item"  onchange="f1()"  >
-                                <option value="Domestic" style="font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;">Domestic</option>
-                            </select></td>
-                    </tr>
-                     
-
-                    <tr>
-                        <td style="color: rgb(1, 1, 100); font-weight: bold; font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;">Billing cycle</td> 
-                        <td> <select >
-                             <option value="Commercial">Select</option>
-                             <option value="Domestic">Bi Monthly</option>
-                        </select></td>
-                    </tr>
-                    <tr>
-                        <td style="color: rgb(1, 1, 100); font-weight: bold;">Consumer Units:</td> 
-                        <td><input type="text" id="t2" placeholder="enter units"> </td>
-                    </tr>
-                    <tr>
-                        <td style="color: rgb(1, 1, 100); font-weight: bold;">KVAH</td> 
-                        <td><input type="text"> </td>
-                    </tr>
-
-               </table>    
-            </form>
-             
-                 
-            <br><br>
-             <button id="btn1" onclick="f0()" class="btn btn-danger" style="margin-left: 20%;"> Calculate</button>
-
-             <br><br><br>
-             <div class="out">
-                <p id="ans" style="margin-left: 31%;"> </p>
-             </div>
-           
-
-             <br><br><br>
-            <div class="head" >
-                      <p style="text-align: center;"></p>
-            </div>
-        </div>
-    </section>
-    <script>
-        function f0(){
+      <script>
+        function f0()
+        {
           
                var a= select.item[select.item.selectedIndex].text;
-               var c_units=document.getElementById("t2").value;
+             
+               var unit=document.getElementById("t2").value;
                var result;
+               
     
-                       if(a=="Domestic"){
-                                 if(c_units<=100){
-                                       result=c_units*0+0;
-                                       document.getElementById("ans").innerHTML =("Your Amount Rs: "+result);
-                                 }else if(c_units<=200){
-                                     result =(100*0)+((c_units-100)*1.50)+20.0;
-                                     document.getElementById("ans").innerHTML =("Your Amount Rs: "+result);
-                                 }else if(c_units<=500){
-                                     result=(100*0)+(100*2.00)+((c_units-200)*3.00)+30;
-                                     document.getElementById("ans").innerHTML =("Your Amount Rs: "+result);
+                 if(a=="Domestic")
+                {
+                                 if(unit<=100){
+                                       result=unit*0+0;
+                                   
+                                 }else if(unit<=200){
+                                     result =(100*0)+((unit-100)*1.50)+20.0;
+                                  
+                                 }else if(unit<=500){
+                                     result=(100*0)+(100*2.00)+((unit-200)*3.00)+30;
+                                   
                                  }else{
-                                     result=(100*0)+(100*3.50)+(300*4.60)+((c_units-500)*6.60)+50;
-                                     document.getElementById("ans").innerHTML =("Your Amount Rs: "+result);
+                                     result=(100*0)+(100*3.50)+(300*4.60)+((unit-500)*6.60)+50;
+                                   
                                  }
     
+                                 document.getElementById("ans").innerHTML =("Your Amount Rs: "+result);
+                }
+    
+            if(a=="Commercial")
+                            {        
+                                var total=0;
+                                var sub=document.getElementById('output').selectedOptions[0].value;
                             
-                       }
+                            if(sub==="III-A(2)")
+                                {
+                                    if(unit<=750)
+                                {
+                                    var total=0;
+                                }  
+                            else if(unit>750&&unit<=1000)
+                                {
+                                    var total=unit*2.3;
+                                }  
+                            else if(unit>1000 && unit<=1500)
+                                {
+                                    var total=1000*2.3+(unit-1000)*2.3;
+                                }  
+                            else 
+                                {
+                                    var total=1000*2.3+500*3.45+(unit-1500);
+                                } 
+                                
+                            }
+                            if(sub=="I-C")
+                                {
+                                    total=unit*4.60;
+                                }
+                            if(sub=="II-A")
+                                {
+                                    total=unit*6.35;
+                                }
+                            if(sub=="II-B(1)")
+                                {
+                                    total=unit*5.75;
+                                }
+                            if(sub=="II-B(2)")
+                                {
+                                    total=unit*7.50;
+                                }
+                            if(sub=="II-C")
+                            {
+                                if(unit>0 && unit<=120)
+                                {
+                                    total=unit*2.85;
+                                }
+                                else{
+                                    total=120*2.85+(unit-120)*5.75;
+                                }
+                            }
+                            if(sub=="III-A(1)")
+                            {
+                                if(unit>0 && unit<=500)
+                                {
+                                    total=unit*4.0;
+                                }
+                                else{
+                                    total=500*4.0+(unit-120)*4.60;
+                                }
+                            }
+                            if(sub=="III-B")
+                            {
+                                total=unit*6.35;
+                            }
+                            if(sub=="IV")
+                            {
+                                total=unit*3.22;
+                            }
+                            if(sub=="V")
+                            {
+                                if(unit>0 && unit<=100)
+                                {
+                                    total=unit*5.0;
+                                }
+                                else{
+                                    total=100*5.0+(unit-100)*8.05;
+                                }
+                            }
+                            if(sub=="VI")
+                            {
+                                total=unit*12;
+                            }
+                            document.getElementById("ans").innerHTML =("Your Amount Rs: "+total);;
+                        }
+    }
+    
+        function get()
+        {
+            var getValue=select.item[select.item.selectedIndex].text;
+            if(getValue==="Commercial")
+            {
+            var a=["I-C","II-A","II-B(1)","II-B(2)","II-C","III-A(1)","III-A(2)","III-B","IV","V","VI"];
+                var string="";
+                 
+                 for(i=0;i<a.length;i++)
+                 {
+                     string=string+"<option value="+a[i]+">"+a[i]+"</option>";
+                 }
+                var duration="";
+            }
+            else
+            {
+               var string=""; 
+               var d="Bi-monthly";
+               var duration="<option value="+d+">"+d+"</option>"
                
+            }
+            document.getElementById("duration").innerHTML=duration
+            document.getElementById("output").innerHTML=string;
         }
+                                                
     
     
         
     </script>
+    <body>
+       
+            <br><br>   
+               
+        <section style="margin-left: 5%;margin-top: 3%;">
+            <div class="box">
+                <div class="head" >
+                   
+                </div>
+                              <h4 style=" margin-left: 34%;font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;font-weight: 900;">EB BILL CALCULATION</h4>
+                <br>
+                <form  style="margin-left: 200px;" name="select" >
+                   <table width="80%">
+                       <tr>
+                            <td style="color: rgb(1, 1, 100); font-weight: bold;">Tariff Check</td> 
+                            <td> <select name="item"  onchange="get()" >
+                                   
+                                    <option value="Domestic">Domestic</option>
+                                    <option value="Commercial">Commercial</option>
+                                </select></td>
+                        </tr>
+                        <tr>
+                            <td style="color: rgb(1, 1, 100); font-weight: bold;">SUBDIVISION(Not Required for Domestic Tariff)</td>
+                            <td><select id="output" ></select></td>
+                        </tr>
+    
+                        <tr>
+                            <td style="color: rgb(1, 1, 100); font-weight: bold;">Billing cycle</td> 
+                            <td> <select name="item1" id="duration">
+                                 <option value="Commercial">Select</option>
+                                 <option value="Domestic">Bi Monthly</option>
+                            </select></td>
+                        </tr>
+                        <tr>
+                           
+                            <td style="color: rgb(1, 1, 100); font-weight: bold;">Constrated Load(Not Required for Domestic Tariff)</td> 
+                            <td><input type="text"> </td>
+                        </tr>
+                        <tr>
+                            <td style="color: rgb(1, 1, 100); font-weight: bold;">Consumer Units:</td> 
+                            <td><input type="text" id="t2" placeholder="enter units"> </td>
+                        </tr>
+                        <tr>
+                            <td style="color: rgb(1, 1, 100); font-weight: bold;">KVAH(Not required for "Domestic Tariff)</td> 
+                            <td><input type="text"> </td>
+                        </tr>
+    
+                   </table>    
+                </form>
+                 
+                     
+                <br><br>
+                 <button id="btn1" onclick="f0()" class="btn btn-danger" style="margin-left: 17%;"> Calculate</button>
+    
+                 <br><br><br>
+                
+                 <div class="out">
+                    <p id="ans" style="margin-left: 36%;"> </p>
+                 </div>
+               
+    
+                 <br><br><br>
+               
+            </div>
+        </section>
+    
+           
+ 
 
   
    
