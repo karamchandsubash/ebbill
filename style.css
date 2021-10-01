@@ -1,0 +1,83 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+
+}
+#navbar{
+    position: sticky;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    padding: .5rem 5rem;
+    box-shadow: 5px 5px 20px rgba(0,0,0,0.5) ;
+    background: black;
+}
+.navbar .navbar-brand{
+    font-size: 25px;
+    font-weight: 800;
+    color: #15f700 !important;
+   
+}
+#navbarSupportedContent a{
+    color: #fff;
+    margin-right: 50px;
+    font-weight: 700;
+         
+}
+#navbarSupportedContent a:hover{
+    border-bottom: 2px solid #29f700;    
+}
+#navbarSupportedContent button{
+    background: #00bdf7;
+    width: 5rem;
+    border-radius: 15px;
+    font-weight: 700;
+}
+.iy{
+    color:cyan;
+}
+body{
+    background: linear-gradient(#0c7b93 0%, #00a8cc 0%);
+}
+section{
+    
+
+    
+    align-items: center;
+    justify-content: center;
+    color: #0e1316;
+    
+  }
+  #Home{
+    background: #fff;
+     background-image: url(mobile.jpg);
+  }
+  #About{
+    background: #f2f2f2;
+  }
+  #Category{
+    background: #e6e6e6;
+  }
+  #Latest{
+    background: #fff;
+  }
+  #Contact{
+    background: #f2f2f2;
+  }
+  #Feedback{
+    background: #e6e6e6;
+  }
+  .button a{
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    color: #fff;
+    background: #2980b9;
+    padding: 7px 12px;;
+    font-size: 18px;
+    border-radius: 6px;
+    box-shadow: rgba(0, 0, 0, 0.15);
+  }

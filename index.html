@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+    </head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light" id="navbar">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#" style="color: white;">VTECH</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="color: white;">
+                  CALCULATORS
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <li><a href="" class="dropdown-item" style="color: black;" href="">EB CALCULATOR</a></li>
+                  <li><a href="https://karamchandsubash.github.io/scientific/" class="dropdown-item" style="color: black;" href="">SCIENTIFIC CALCULATOR</a></li>
+                  <li><a href="https://karamchandsubash.github.io/cgpa/" class="dropdown-item" style="color: black;" href="">CGPA CALCULATOR</a></li>
+                </ul>
+              </li>
+              <li class="nav-item">
+                <a href="" class="nav-link " style="color: black;"></a>
+              </li>
+            </ul>
+            <a href="#"><button class="btn p-2 my-lg-0 my-2" style="color:black;" >Home</button></a>
+           </div>
+        </div>
+      </nav>
+      <div class="header">
+        <table width="100%" style="padding-left: 140px;padding-top: 20px;padding-bottom: 70px;">
+            <tr>
+                <td> <img src="photo/logo1.png" alt="" style="left: -40px;"></td>
+                <td><img src="photo/minagam.png" alt="" width="170"></td>
+            </tr>
+        </table>
+       
+        
+         
+    </div>
+        <br><br>   
+           
+    <section style="margin-left: 15%; margin-top: 0%;">
+        <div class="box">
+            <div class="head" >
+                <ul style="list-style: none; margin-left:80px;">
+                    <li style=" display: inline; padding-right:5em"></li>
+                    <li style=" display: inline; padding-right:5em"></li>
+                    <li style=" display: inline;padding-right:5em"> </li>
+                    <li style=" display: inline;padding-right:5em">   </li>
+                    <li style=" display: inline;padding-right:5em"> </li>
+                   
+
+                </ul>
+            </div>
+                          <h4 style="margin-left: 26%; font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;font-weight: 900;"> EB BILL CALCULATION</h4>
+            <br><br><br>
+            <form  style="margin-left: 200px;" name="select" >
+               <table width="80%">
+                   <tr>
+                        <td style="color: rgb(1, 1, 100); font-weight: bold;font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;">Tariff Check</td> 
+                        <td> <select name="item"  onchange="f1()"  >
+                                <option value="Domestic" style="font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;">Domestic</option>
+                            </select></td>
+                    </tr>
+                     
+
+                    <tr>
+                        <td style="color: rgb(1, 1, 100); font-weight: bold; font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;">Billing cycle</td> 
+                        <td> <select >
+                             <option value="Commercial">Select</option>
+                             <option value="Domestic">Bi Monthly</option>
+                        </select></td>
+                    </tr>
+                    <tr>
+                        <td style="color: rgb(1, 1, 100); font-weight: bold;">Consumer Units:</td> 
+                        <td><input type="text" id="t2" placeholder="enter units"> </td>
+                    </tr>
+                    <tr>
+                        <td style="color: rgb(1, 1, 100); font-weight: bold;">KVAH</td> 
+                        <td><input type="text"> </td>
+                    </tr>
+
+               </table>    
+            </form>
+             
+                 
+            <br><br>
+             <button id="btn1" onclick="f0()" class="btn btn-danger" style="margin-left: 20%;"> Calculate</button>
+
+             <br><br><br>
+             <div class="out">
+                <p id="ans" style="margin-left: 31%;"> </p>
+             </div>
+           
+
+             <br><br><br>
+            <div class="head" >
+                      <p style="text-align: center;"></p>
+            </div>
+        </div>
+    </section>
+    <script>
+        function f0(){
+          
+               var a= select.item[select.item.selectedIndex].text;
+               var c_units=document.getElementById("t2").value;
+               var result;
+    
+                       if(a=="Domestic"){
+                                 if(c_units<=100){
+                                       result=c_units*0+0;
+                                       document.getElementById("ans").innerHTML =("Your Amount Rs: "+result);
+                                 }else if(c_units<=200){
+                                     result =(100*0)+((c_units-100)*1.50)+20.0;
+                                     document.getElementById("ans").innerHTML =("Your Amount Rs: "+result);
+                                 }else if(c_units<=500){
+                                     result=(100*0)+(100*2.00)+((c_units-200)*3.00)+30;
+                                     document.getElementById("ans").innerHTML =("Your Amount Rs: "+result);
+                                 }else{
+                                     result=(100*0)+(100*3.50)+(300*4.60)+((c_units-500)*6.60)+50;
+                                     document.getElementById("ans").innerHTML =("Your Amount Rs: "+result);
+                                 }
+    
+                            
+                       }
+               
+        }
+    
+    
+        
+    </script>
+
+  
+   
+     
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js" integrity="sha384-W8fXfP3gkOKtndU4JGtKDvXbO53Wy8SZCQHczT5FMiiqmQfUpWbYdTil/SxwZgAN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.min.js" integrity="sha384-skAcpIdS7UcVUC05LJ9Dxay8AXcDYfBJqt1CJ85S/CFujBsIzCIv+l9liuYLaMQ/" crossorigin="anonymous"></script>
+</body>
+</html>
